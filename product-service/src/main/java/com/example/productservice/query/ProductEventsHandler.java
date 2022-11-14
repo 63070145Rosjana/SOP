@@ -30,6 +30,7 @@ public class ProductEventsHandler {
     public void on(ProductReservedEvent productReservedEvent){
         ProductEntity productEntity = productRepository.findByProductId(productReservedEvent.getProductId());
         productEntity.setQuantity(productEntity.getQuantity() - productReservedEvent.getQuantity());
+        System.out.println(productEntity);
         productRepository.save(productEntity);
     }
 }
